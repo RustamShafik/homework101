@@ -1,7 +1,7 @@
 def get_mask_card_number(card_numba: int) -> str:
     """Функция принимает на вход номер карты и возвращает ее маску"""
     numba_str = str(card_numba)
-    return f"{numba_str[0:4]} {numba_str[4:6]}** **** {numba_str[-4:]}"
+    return f"{numba_str[-16:-12]} {numba_str[-12:-10]}** **** {numba_str[-4:]}"
 
 
 def get_mask_account(account: int) -> str:
