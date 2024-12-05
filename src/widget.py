@@ -1,13 +1,16 @@
 from masks import get_mask_card_number
 from masks import get_mask_account
+
+
 def mask_account_card(account: str) -> str:
-    '''Функция маскирует номер счета или карты'''
+    """Функция маскирует номер счета или карты"""
     if account[0:4] == "Счет":
         return f"Счет {get_mask_account(account)}"
     return get_mask_card_number(account)
 
+
 def get_date(date: str) -> str:
-    '''Функция принимает на вход строку и форматирвует ее по условиям'''
+    """Функция принимает на вход строку и форматирвует ее по условиям"""
     return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
 
 
