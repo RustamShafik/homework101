@@ -9,11 +9,11 @@ def filter_by_state(dict_list: list[dict], state: str = 'EXECUTED') -> list[dict
     return newlist
 
 
-def sort_by_date(dict_list: list[dict], poryadok: bool = True) -> list[dict]:
+def sort_by_date(dict_list: list[dict], order: bool = True) -> list[dict]:
     """Функция принимает список словарей и необязательный параметр, задающий
     порядок сортировки (по умолчанию — убывание). Функция должна возвращать
     новый список, отсортированный по дате (date)"""
-    if poryadok:
-        return sorted(dict_list, key=lambda x: x['date'], reverse = True)
+    if order:
+        return sorted(dict_list, key=lambda x: x['date'], reverse=True)
     else:
         return sorted(dict_list, key=lambda x: x['date'])
