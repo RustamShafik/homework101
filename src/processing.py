@@ -3,9 +3,9 @@ def filter_by_state(dict_list: list[dict], state: str = 'EXECUTED') -> list[dict
     возвращает новый список словарей, содержащий только словари, у которых ключ
     state соответствует указанному значению"""
     newlist = []
-    for slovar in dict_list:
-        if slovar.get('state') == state:
-            newlist.append(slovar)
+    for list_dictionary in dict_list:
+        if list_dictionary.get('state') == state:
+            newlist.append(list_dictionary)
     return newlist
 
 
