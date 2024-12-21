@@ -55,4 +55,18 @@ def test_get_mask_account_not_string():
     assert str(exc_info.value) == "Номер счета должен представлять собой строку"
 
 
+def test_get_mask_card_no_card_number():
+    with pytest.raises(ValueError) as exc_info:
+        get_mask_card_number(None)
+
+    # Проверяем, что сообщение об ошибке соответствует ожидаемому
+    assert str(exc_info.value) == "Отсутствует номер карты"
+
+def test_get_mask_account_not_string():
+    with pytest.raises(ValueError) as exc_info:
+        get_mask_account("156")
+
+    # Проверяем, что сообщение об ошибке соответствует ожидаемому
+    assert str(exc_info.value) == "Номер счета должен содержать минимум 4 символа"
+
 
