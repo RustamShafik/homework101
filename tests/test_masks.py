@@ -14,6 +14,7 @@ def test_get_mask_card_number(valid_card_numbers):
     for card_numba, expected in valid_card_numbers:
         assert get_mask_card_number(card_numba) == expected
 
+
 @pytest.fixture()
 def valid_account_numbers():
     return [
@@ -62,7 +63,7 @@ def test_get_mask_card_no_card_number():
     # Проверяем, что сообщение об ошибке соответствует ожидаемому
     assert str(exc_info.value) == "Отсутствует номер карты"
 
-def test_get_mask_account_not_string():
+def test_get_mask_account_too_short():
     with pytest.raises(ValueError) as exc_info:
         get_mask_account("156")
 
