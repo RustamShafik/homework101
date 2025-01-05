@@ -1,6 +1,7 @@
 import pytest
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
+
 @pytest.fixture
 def sample_transactions():
     return [
@@ -81,6 +82,7 @@ def sample_transactions():
         }
     ]
 
+
 @pytest.fixture
 def sample_card_numbers():
     return [
@@ -97,6 +99,7 @@ def test_filter_by_currency(sample_transactions):
     for transaction in result:
         assert transaction["operationAmount"]["currency"]["name"] == "USD"
 
+
 def test_transaction_descriptions(sample_transactions):
     result = list(transaction_descriptions(sample_transactions))
     expected_descriptions = [
@@ -108,10 +111,10 @@ def test_transaction_descriptions(sample_transactions):
     ]
     assert result == expected_descriptions
 
-def test_card_number_generator(sample_card_numbers):
-    result = list(card_number_generator(1,3))
-    assert result == sample_card_numbers
 
+def test_card_number_generator(sample_card_numbers):
+    result = list(card_number_generator(1, 3))
+    assert result == sample_card_numbers
 
 
 @pytest.mark.parametrize(
@@ -139,6 +142,7 @@ def test_filter_by_currency_with_parametrization(sample_transactions, currency, 
     if expected_count > 0:
         for transaction in result:
             assert transaction["operationAmount"]["currency"]["name"] == currency
+
 
 @pytest.mark.parametrize(
     "transactions, expected_descriptions",
