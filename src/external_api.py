@@ -1,13 +1,15 @@
 import os
-from dotenv import load_dotenv
+
 import requests
-import json
+from dotenv import load_dotenv
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 
+
 def convert_op(transaction):
-    '''Функция принимает транзакцию в виде словаря {"amount": 150.0, "currency": "EUR"} и возвращает сумму транзакции в рублях'''
+    '''Функция принимает транзакцию в виде словаря {"amount": 150.0, "currency": "EUR"} и возвращает
+    сумму транзакции в рублях'''
     trans_currency = transaction["currency"]
     url = f"https://api.apilayer.com/exchangerates_data/latest?symbols=RUB&base={trans_currency}"
 
@@ -19,8 +21,6 @@ def convert_op(transaction):
 
     status_code = response.status_code
     if status_code != 200:
-        return("Произошла ошибка")
+        return ("Произошла ошибка")
     result = response.json()
     return (transaction["amount"] * result["rates"]["RUB"])
-
-

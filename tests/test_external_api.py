@@ -1,6 +1,8 @@
+from unittest.mock import Mock, patch
+
 from src.external_api import convert_op
-import unittest
-from unittest.mock import patch, Mock
+
+
 @patch('src.external_api.requests.request')  # Подмена метода requests.request
 def test_convert_op_success(mock_request):
     # Настройка mock-объекта для успешного ответа
@@ -20,4 +22,3 @@ def test_convert_op_success(mock_request):
 # if __name__ == '__main__':
 #     test_convert_op_success()
 #     print("test_convert_op_success passed")
-

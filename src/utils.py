@@ -1,5 +1,5 @@
-import requests
 import json
+
 
 def transactions_dict_return(file_path):
     '''Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях'''
