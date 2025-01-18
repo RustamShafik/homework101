@@ -6,6 +6,11 @@ from dotenv import load_dotenv
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 
+transaction = {
+    "amount": 150.0,
+    "currency": "EUR"
+}
+
 
 def convert_op(transaction):
     '''Функция принимает транзакцию в виде словаря {"amount": 150.0, "currency": "EUR"} и возвращает
@@ -24,3 +29,7 @@ def convert_op(transaction):
         return ("Произошла ошибка")
     result = response.json()
     return (transaction["amount"] * result["rates"]["RUB"])
+
+if __name__ == '__main__':
+    print(convert_op(transaction))
+    print(type(convert_op(transaction)))
