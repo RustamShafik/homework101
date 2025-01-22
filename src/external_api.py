@@ -30,6 +30,7 @@ def convert_op(transaction):
     result = response.json()
     return (transaction["amount"] * result["rates"]["RUB"])
 
+
 if __name__ == '__main__':
     print(convert_op(transaction))
     print(type(convert_op(transaction)))
