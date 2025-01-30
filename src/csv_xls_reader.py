@@ -9,7 +9,7 @@ def read_transactions_csv(path):
     '''
     transactions = []
     with open(path) as file:
-        reader = csv.DictReader(file)
+        reader = csv.DictReader(file, delimiter=";")
         for row in reader:
             transactions.append(row)
     print(transactions)
@@ -25,8 +25,10 @@ def read_transactions_xls(path):
     for index, row in excel_transactions.iterrows():
         dict = row.to_dict()
         transactions.append(dict)
+    print(transactions)
     return transactions
 
 
 if __name__ == '__main__':
-    read_transactions_csv("../short.csv")
+    # read_transactions_csv("../short.csv")
+    read_transactions_xls("../transactions_excel.xlsx")
