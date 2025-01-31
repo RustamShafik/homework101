@@ -1,14 +1,8 @@
-from datetime import datetime
 import json
+from datetime import datetime
+
 import csv_xls_reader
-import decorators
-import external_api
-import generators
-import masks
-import processing
-import transact_dict
 from utils import transactions_dict_return
-import widget
 
 
 def main():
@@ -23,19 +17,19 @@ def main():
     transactions = []
 
     if choice == '1':
-        file_path = input(f"Введите путь к JSON-файлу (по умолчанию ../data/operations.json): ")
+        file_path = input("Введите путь к JSON-файлу (по умолчанию ../data/operations.json): ")
         if not file_path:  # Если путь не был введен, используем путь по умолчанию
             file_path = "../data/operations.json"
         transactions = transactions_dict_return(file_path)
 
     elif choice == '2':
-        file_path = input(f"Введите путь к CSV-файлу (по умолчанию ../transactions.csv): ")
+        file_path = input("Введите путь к CSV-файлу (по умолчанию ../transactions.csv): ")
         if not file_path:  # Если путь не был введен, используем путь по умолчанию
             file_path = "../transactions.csv"
         transactions = csv_xls_reader.read_transactions_csv(file_path)
 
     elif choice == '3':
-        file_path = input(f"Введите путь к XLSX-файлу (по умолчанию ../transactions_excel.xlsx): ")
+        file_path = input("Введите путь к XLSX-файлу (по умолчанию ../transactions_excel.xlsx): ")
         if not file_path:  # Если путь не был введен, используем путь по умолчанию
             file_path = "../transactions_excel.xlsx"
         transactions = csv_xls_reader.read_transactions_xls(file_path)
