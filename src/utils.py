@@ -27,4 +27,4 @@ def transactions_dict_return(file_path):
 
 
 # if __name__ == "__main__":
-#     transactions_dict_return("../data/operations.json")
+#     print(transactions_dict_return("../data/operations.json"))
